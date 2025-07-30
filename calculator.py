@@ -20,6 +20,15 @@ def modulo(x, y):
         return "Error: Modulo by zero."
     return x % y
 
+def get_number(prompt):
+    while True:
+        value = input(prompt)
+        try:
+            number = float(value)
+            return number
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
 while True:
     print("\nSelect operation:")
     print("1. Add")
@@ -37,8 +46,8 @@ while True:
         break
 
     if choice in ['1', '2', '3', '4', '5', '6']:
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
+        num1 = get_number("Enter first number: ")
+        num2 = get_number("Enter second number: ")
 
         if choice == '1':
             print(f"{num1} + {num2} = {add(num1, num2)}")
@@ -53,4 +62,4 @@ while True:
         elif choice == '6':
             print(f"{num1} % {num2} = {modulo(num1, num2)}")
     else:
-        print("Invalid input. Please select a valid operation.")
+        print("Invalid selection. Please select a valid operation number.")
